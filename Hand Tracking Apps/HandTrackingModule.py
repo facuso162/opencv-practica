@@ -13,6 +13,10 @@ class handDetector():
 
     HAND_GESTURES: list = [
         # Arreglos que simbolizan los gestos
+        # Los arreglos comentados son gestos
+        # que no se agregaron, para agregarlo
+        # se descomenta y se le agrega una imagen
+        # que sera mostrada al reproducir el gesto
         [[0,0,0,0,0], images[0]],
         # [0,0,0,0,1],
         # [0,0,0,1,0],

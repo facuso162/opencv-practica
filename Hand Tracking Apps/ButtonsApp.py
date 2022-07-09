@@ -2,6 +2,7 @@ import cv2 as cv
 import time
 import HandTrackingModule as htm
 import numpy as np
+import os
 
 #############################
 wCam, hCam = 1080, 720
@@ -15,9 +16,23 @@ detector = htm.handDetector(detectionCon = .8, trackCon = .8)
 
 TIMER = int(3)
 
-size = (wCam, hCam)
+fotosFolderPath = 'C:/Users/Facu/Desktop/Facu/Facultad/SGDPV/opencv/Hand Tracking Apps/Fotos'
+fotosPathList = os.listdir(fotosFolderPath)
+fotos = []
+for fotoPath in fotosPathList:
+    foto = cv.imread(f'{fotosFolderPath}/{fotoPath}')
+    fotos.append(foto)
+nFotos = len(fotos) + 1
 
-vGrabador = cv.VideoWriter('video.avi', cv.VideoWriter_fourcc(*'MJPG'), 10, size)
+videosFolderPath = 'C:/Users/Facu/Desktop/Facu/Facultad/SGDPV/opencv/Hand Tracking Apps/Videos'
+videosPathList = os.listdir(videosFolderPath)
+videos = []
+for videoPath in videosPathList:
+    video = cv.imread(f'{videosFolderPath}/{videoPath}')
+    videos.append(video)
+nVideos = len(videos) + 1
+
+size = (wCam, hCam)
 
 pTime = 0
 
@@ -57,12 +72,18 @@ while True:
                 cv.imshow('Webcam', img)
                 # Tiempo que se muestra la foto
                 cv.waitKey(2000)
+
+                photoPath = 'Hand Tracking Apps/Fotos/{:04d} - foto.jpg'.format(nFotos)
+                nFotos = nFotos + 1
+
                 # Se guarda la foto en el directorio 'camera.jpg'
-                cv.imwrite('camera.jpg', img)
+                cv.imwrite(photoPath, img)
                 # Se resetea el temporizador para futuras fotos
                 TIMER = int(3)
         elif (x > 350 and x < 450) and (y > 50 and y < 150):
             # Video
+            videoPath = 'Hand Tracking Apps/Videos/{:04d} - video.mp4'.format(nVideos)
+            vGrabador = cv.VideoWriter(videoPath, cv.VideoWriter_fourcc(*'MJPG'), 10, size)
             prev = time.time()
 
             while TIMER >= 0:
@@ -79,6 +100,7 @@ while True:
                     if cur - prev >= 1:
                         prev = cur
                         TIMER = TIMER - 1
+            nVideos = nVideos + 1
             TIMER = int(3)
         elif (x > 500 and x < 600) and (y > 50 and y < 150):
             # Ventana Parpadeando
