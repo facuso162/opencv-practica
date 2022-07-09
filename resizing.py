@@ -1,4 +1,3 @@
-from turtle import width
 import cv2 as cv
 
 def rescaleFrame(frame: cv.Mat, scale: float = 0.75) -> cv.Mat:
@@ -20,7 +19,7 @@ def changeRes(capture: cv.VideoCapture, widht: int, height: int):
 
 img = cv.imread('Imagenes/2pac.jpg')
 
-capture = cv.VideoCapture('Videos/cachetada.mp4')
+capture = cv.VideoCapture('Videos/messirve.mp4')
 
 cv.imshow('2Pac', img)
 
@@ -38,7 +37,7 @@ while True:
     # no haya mas frames en el video no tire error
     try:
         success, frame = capture.read()
-        cv.imshow('Video Cachetada', frame)
+        cv.imshow('Video Messi', frame)
         if cv.waitKey(1) & 0xFF == ord('p'):
             break
     except:
@@ -48,13 +47,13 @@ while True:
 cv.destroyAllWindows()
 
 # se vuelve a asignar el video, para que lo vuelva a leer frame a frame desde 0
-capture = cv.VideoCapture('Videos/cachetada.mp4')
+capture = cv.VideoCapture('Videos/messirve.mp4')
 
 while True:
 
     try:
         success, frame = capture.read()
-        cv.imshow('Video Cachetada Resized', rescaleFrame(frame, 0.2))
+        cv.imshow('Video Cachetada Resized', rescaleFrame(frame, 0.5))
         if cv.waitKey(1) & 0xFF == ord('p'):
             break
     except:
