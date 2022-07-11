@@ -73,7 +73,7 @@ while True:
                 # Tiempo que se muestra la foto
                 cv.waitKey(2000)
 
-                photoPath = f'Hand Tracking Apps/Fotos/{nFotos:04d} - foto.jpg'
+                photoPath = f'HandTrackingApps/Fotos/{nFotos:04d} - foto.jpg'
                 nFotos = nFotos + 1
 
                 # Se guarda la foto en el directorio 'camera.jpg'
@@ -82,7 +82,8 @@ while True:
                 TIMER = int(3)
         elif (x > 350 and x < 450) and (y > 50 and y < 150):
             # Video
-            videoPath = f'Hand Tracking Apps/Videos/{nVideos:04d} - video.mp4'
+            # Hay un error con los formatos que no puedo resolver...
+            videoPath = f'HandTrackingApps/Videos/{nVideos:04d} - video.avi'
             vGrabador = cv.VideoWriter(videoPath, cv.VideoWriter_fourcc(*'MJPG'), 10, size)
             prev = time.time()
 

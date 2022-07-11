@@ -23,7 +23,7 @@ while True:
 
     if len(lmList) > 0:
         fingers = detector.fingersUp(lmList)
-        for hg in htm.handDetector.HAND_GESTURES:
+        for hg in htm.HandDetector.HAND_GESTURES:
             if np.array_equal(fingers, hg[0]):
                 img[50:350, 50:250] = hg[1]
                 break
