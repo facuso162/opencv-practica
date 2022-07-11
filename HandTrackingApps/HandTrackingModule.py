@@ -2,9 +2,9 @@ import cv2
 import mediapipe as mp
 import time
 import os
-class handDetector():
+class HandDetector():
 
-    folderPath = 'C:/Users/Facu/Desktop/Facu/Facultad/SGDPV/opencv/Hand Tracking Apps/FingerImages'
+    folderPath = 'C:/Users/Facu/Desktop/Facu/Facultad/SGDPV/opencv/HandTrackingApps/FingerImages'
     imPathList = os.listdir(folderPath)
     images = []
     for imPath in imPathList:
@@ -144,7 +144,7 @@ def main():
     cTime = 0
 
     cap = cv2.VideoCapture(0)
-    hd = handDetector()
+    hd = HandDetector()
 
     while True:
 

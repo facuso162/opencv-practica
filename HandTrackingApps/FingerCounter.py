@@ -11,7 +11,7 @@ wCam, hCam = 1080, 720
 cap.set(3, wCam)
 cap.set(4, hCam)
 
-detector = htm.handDetector(detectionCon = .8, trackCon = .8)
+detector = htm.HandDetector(detectionCon = .8, trackCon = .8)
 
 tipIds = [4, 8, 12, 16, 20]
 

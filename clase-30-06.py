@@ -1,5 +1,4 @@
 import cv2 as cv
-import time
 import mediapipe as mp
 
 # Grabbing the Holistic Model from Mediapipe and

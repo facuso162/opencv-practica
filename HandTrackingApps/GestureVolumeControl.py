@@ -17,7 +17,7 @@ cap = cv.VideoCapture(0)
 cap.set(3, wCam)
 cap.set(4, hCam)
 
-detector = htm.handDetector(detectionCon = .8, trackCon = .8)
+detector = htm.HandDetector(detectionCon = .8, trackCon = .8)
 
 devices = AudioUtilities.GetSpeakers()
 interface = devices.Activate(

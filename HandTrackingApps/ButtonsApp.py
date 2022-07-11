@@ -12,11 +12,11 @@ cap = cv.VideoCapture(0)
 cap.set(3, wCam)
 cap.set(4, hCam)
 
-detector = htm.handDetector(detectionCon = .8, trackCon = .8)
+detector = htm.HandDetector(detectionCon = .8, trackCon = .8)
 
 TIMER = int(3)
 
-fotosFolderPath = 'C:/Users/Facu/Desktop/Facu/Facultad/SGDPV/opencv/Hand Tracking Apps/Fotos'
+fotosFolderPath = 'C:/Users/Facu/Desktop/Facu/Facultad/SGDPV/opencv/HandTrackingApps/Fotos'
 fotosPathList = os.listdir(fotosFolderPath)
 fotos = []
 for fotoPath in fotosPathList:
@@ -24,7 +24,7 @@ for fotoPath in fotosPathList:
     fotos.append(foto)
 nFotos = len(fotos) + 1
 
-videosFolderPath = 'C:/Users/Facu/Desktop/Facu/Facultad/SGDPV/opencv/Hand Tracking Apps/Videos'
+videosFolderPath = 'C:/Users/Facu/Desktop/Facu/Facultad/SGDPV/opencv/HandTrackingApps/Videos'
 videosPathList = os.listdir(videosFolderPath)
 videos = []
 for videoPath in videosPathList:
@@ -136,9 +136,9 @@ while True:
             cv.destroyWindow('Ventana Parpadeante')
             TIMER = int(3)
 
-    img[50:150, 200:300] = cv.imread('Hand Tracking Apps/ButtonAppImages/foto.png') # Foto Button
-    img[50:150, 350:450] = cv.imread('Hand Tracking Apps/ButtonAppImages/videoCamara.png') # Video Button
-    img[50:150, 500:600] = cv.imread('Hand Tracking Apps/ButtonAppImages/parpadea.png') # Parpadea Button
+    img[50:150, 200:300] = cv.imread('HandTrackingApps/ButtonAppImages/foto.png') # Foto Button
+    img[50:150, 350:450] = cv.imread('HandTrackingApps/ButtonAppImages/videoCamara.png') # Video Button
+    img[50:150, 500:600] = cv.imread('HandTrackingApps/ButtonAppImages/parpadea.png') # Parpadea Button
 
     cTime = time.time()
     fps = 1 / (cTime - pTime)
