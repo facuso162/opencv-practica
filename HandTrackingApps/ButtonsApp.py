@@ -32,7 +32,10 @@ for videoPath in videosPathList:
     videos.append(video)
 nVideos = len(videos) + 1
 
-size = (wCam, hCam)
+wCapture = int(cap.get(3))
+hCapture = int(cap.get(4))
+
+size = (wCapture, hCapture)
 
 pTime = 0
 
@@ -82,7 +85,6 @@ while True:
                 TIMER = int(3)
         elif (x > 350 and x < 450) and (y > 50 and y < 150):
             # Video
-            # Hay un error con los formatos que no puedo resolver...
             videoPath = f'HandTrackingApps/Videos/{nVideos:04d} - video.avi'
             vGrabador = cv.VideoWriter(videoPath, cv.VideoWriter_fourcc(*'MJPG'), 10, size)
             prev = time.time()
